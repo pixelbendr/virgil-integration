@@ -21,10 +21,11 @@ import com.virgilsecurity.sdk.crypto.CryptoHelper;
 import com.virgilsecurity.sdk.crypto.KeyPair;
 import com.virgilsecurity.sdk.crypto.KeyPairGenerator;
 import com.virgilsecurity.sdk.crypto.PublicKey;
+import com.virgilsecurity.sdk.crypto.Base64;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Base64;
+
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -169,8 +170,7 @@ public class SecurityUtils {
 
         Map<String, PublicKey> recipients = new HashMap<>();
         for (VirgilCard recipientCard : recipientCards) {
-            recipients.put(recipientCard.getId(),
-                    new PublicKey(recipientCard.getPublicKey().getKey()));
+            recipients.put(recipientCard.getId(), new PublicKey(Base64.decode(recipientCard.getPublicKey().getKey())));
         }
 
         return recipients;

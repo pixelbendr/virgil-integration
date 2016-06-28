@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.psyphertxt.android.cyfa">
+
+    <!-- network access -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- network access -->
+
+    <!-- contacts -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- contacts -->
+
+    <!-- camera -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- camera -->
+
+    <!-- sms -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <!-- sms -->
+
+    <!-- notifications -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
+    <permission
+            android:name="com.psyphertxt.android.cyfa.permission.C2D_MESSAGE"
+            android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.psyphertxt.android.cyfa.permission.C2D_MESSAGE"/>
+
+    <!-- notifications -->
+
+    <!-- required features -->
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <!-- required features -->
+    <application
+            android:name=".MainApplication"
+            android:icon="@drawable/ico_launcher"
+            android:label="@string/app_name"
+            android:largeHeap="true"
+            android:theme="@style/AppTheme"
+            tools:ignore="allowBackup">
+        <activity
+                android:name=".ui.activity.startup.LaunchScreenActivity"
+                android:label="@string/app_name"
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".ui.activity.startup.StartUpActivity"
+                android:label="@string/app_name"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".ui.activity.startup.VerificationCodeActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".ui.activity.GroupActivity"
+                android:screenOrientation="portrait">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".ui.activity.StatusActivity"/>
+        </activity>
+        <activity
+                android:name=".ui.activity.StatusActivity"
+                android:screenOrientation="portrait"
+                >
+            <!--android:launchMode="singleInstance"-->
+        </activity>
+        <activity
+                android:name=".ui.activity.startup.ThemeColorActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".ui.activity.startup.ProfileNameActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".ui.activity.startup.PhoneNumberActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".ui.activity.ChatActivity"
+                android:screenOrientation="portrait"
+                android:exported="false">
+            <!--<intent-filter>
+                <action android:name="com.onesignal.NotificationOpened.RECEIVE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>-->
+        </activity>
+        <activity
+                android:name=".ui.activity.FileBrowserActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".ui.activity.MediaPreviewActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".ui.activity.startup.LoaderActivity"
+                android:screenOrientation="portrait">
+        </activity>
+
+        <!-- PUSH NOTIFICATIONS -->
+
+        <!-- <receiver
+                 android:name=".backend.onesignal.NotificationOpenedHandler"
+                 android:exported="false">
+             <intent-filter>
+                 <action android:name="com.onesignal.BackgroundBroadcast.RECEIVE"/>
+             </intent-filter>
+         </receiver>-->
+
+        <!--<service android:name=".backend.onesignal.PushNotificationService"/>-->
+
+        <!-- <meta-data
+                 android:name="com.google.android.gms.version"
+                 android:value="@integer/google_play_services_version"/>-->
+
+        <!-- PUSH NOTIFICATIONS -->
+
+        <!-- push notification icon -->
+        <!-- replace @drawable/push_icon with your push icon identifier -->
+        <!--
+            <meta-data
+            android:name="com.parse.push.notification_icon"
+            android:resource="@drawable/push_icon"/>
+        -->
+        <!-- push notification icon -->
+
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="751f630a4745c28edda4b9b10091fda6549164d0"/>
+
+        <activity
+                android:name=".ui.activity.ScrollingActivity"
+                android:label="@string/title_activity_scrolling"
+                android:theme="@style/AppTheme">
+        </activity>
+        <activity
+                android:name=".ui.activity.SettingsActivity"
+                android:label="@string/title_activity_settings">
+        </activity>
+    </application>
+
+</manifest>

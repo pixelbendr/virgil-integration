@@ -1,0 +1,4 @@
+**Whats New
+   1. Sign up process
+   2. Status screen
+   3. Chat screen

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:background="@color/link_water"
+    >
+
+   <!-- <View
+        android:id="@+id/lineDivider"
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        style="@style/parentAlignmentLeft"
+        android:background="@color/gallery"/>-->
+
+    <ImageView
+        android:layout_width="@dimen/walkthrough_logo_size"
+        android:layout_height="@dimen/walkthrough_logo_size"
+        android:id="@+id/icon_logo"
+        android:layout_marginStart="@dimen/walkthrough_logo_margin_left"
+        android:layout_marginLeft="@dimen/walkthrough_logo_margin_left"
+        android:contentDescription="@string/walkthrough_logo_description"
+        android:src="@drawable/ico_launcher"
+        style="@style/parentAlignmentLeft"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@android:id/title"
+        android:fontFamily="@string/font_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:singleLine="true"
+        android:layout_marginLeft="73dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="13dp"
+        style="@style/parentAlignmentLeft"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="14sp"
+        tools:text="PROFILE NAME"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@style/parentAlignmentLeft"
+        android:layout_below="@android:id/title"
+        android:layout_marginLeft="73dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="73dp"
+        android:id="@+id/linear_layout"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@android:id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dove_gray"
+            android:textSize="14sp"
+            android:layout_weight="20"
+            android:fontFamily="sans-serif-regular"
+            tools:text="When you send messaging on cyfa, people identify you by your profile name. "/>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="17dp"
+            android:layout_weight="80"
+            android:id="@+id/icon"
+            android:contentDescription="@string/walkthrough_left_arrow_description"
+            android:src="@drawable/ic_walkthrough_arrow_left"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:fontFamily="@string/font_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:layout_below="@id/linear_layout"
+        android:singleLine="true"
+        android:layout_marginLeft="73dp"
+        android:layout_marginStart="73dp"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        style="@style/parentAlignmentLeft"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="13sp"
+        tools:text="add profile name"/>
+
+    <!--<View
+        android:id="@+id/Divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:layout_below="@id/icon_media"
+        android:layout_marginLeft="73dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="11dp"
+        />-->
+
+
+</RelativeLayout>

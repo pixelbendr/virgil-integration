@@ -1,0 +1,163 @@
+<RelativeLayout style="@style/AppParentTheme"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.psyphertxt.android.cyfa.ui.ui.activity.VerificationCodeActivity">
+
+    <View
+        android:id="@+id/steps_bar_indicator"
+        android:layout_width="124dp"
+        android:layout_height="1dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="33dp"
+        android:background="@color/silver"
+        />
+
+    <View
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:layout_alignLeft="@id/steps_bar_indicator"
+        android:layout_alignStart="@id/steps_bar_indicator"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/open_circle"
+        />
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignLeft="@id/steps_bar_indicator"
+        android:layout_alignStart="@id/steps_bar_indicator"
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/open_circle"
+        />
+
+    <View
+        android:layout_width="11dp"
+        android:layout_height="11dp"
+        android:layout_alignLeft="@id/steps_bar_indicator"
+        android:layout_alignStart="@id/steps_bar_indicator"
+        android:layout_marginLeft="63dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/open_circle"
+        />
+
+    <View
+        android:id="@+id/view_theme_color"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_alignLeft="@id/steps_bar_indicator"
+        android:layout_alignStart="@id/steps_bar_indicator"
+        android:layout_marginLeft="81dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/open_circle_fill"
+        />
+
+    <ImageView
+        android:id="@+id/lock_icon"
+        android:layout_width="@dimen/phone_icon_size"
+        android:layout_height="@dimen/sketch_icon_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="124dp"
+        android:contentDescription="@string/phone_icon_description"
+        android:src="@drawable/ic_color"/>
+
+    <TextView
+        android:id="@+id/text_theme_title"
+        style="@style/textSignupHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lock_icon"
+        android:text="@string/theme_color_text"/>
+
+    <TextView
+        android:id="@+id/text_theme_message"
+        style="@style/textSignupTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_theme_title"
+        android:layout_marginEnd="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginStart="80dp"
+        android:text="@string/theme_color_text_message"
+        />
+
+    <GridView
+        android:id="@+id/color_grid"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_theme_message"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:horizontalSpacing="15dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="4"
+        android:verticalSpacing="11dp"
+        tools:listitem="@layout/theme_color_item"
+        />
+
+    <TextView
+        android:id="@+id/text_color_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/color_grid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@string/font_light"
+        android:gravity="center"
+        android:text="@string/color_text"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="15sp"
+        />
+
+
+    <!--    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_re_enter_phone_number"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/silver"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textSize="14sp"
+            android:fontFamily="@string/font_regular"
+            android:textAllCaps="false"
+            android:text="@string/re_enter_phone_number_text"
+            android:layout_below="@id/button_resend"/>-->
+
+    <Button
+        android:id="@+id/button_theme_finish"
+        style="@style/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/theme_finish_button"
+        />
+
+    <Button
+        android:id="@+id/button_skip"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/button_theme_finish"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material"
+        android:fontFamily="@string/font_light"
+        android:text="@string/skip_text"
+        android:textAllCaps="false"
+        android:textColor="@color/silver_chalice"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

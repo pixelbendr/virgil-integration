@@ -1,0 +1,20 @@
+<android.support.design.widget.TextInputLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
+        >
+
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/text_status_message"
+    android:textColor="@color/black_54_pc"
+    android:textColorHint="@color/black_54_pc"
+    android:layout_marginTop="@dimen/text_phone_number_margin_top"
+    android:textSize="@dimen/text_phone_number_text_size"
+    tools:text="@string/default_status_message"
+    android:gravity="start"
+    android:fontFamily="@string/font_regular"/>
+
+</android.support.design.widget.TextInputLayout>

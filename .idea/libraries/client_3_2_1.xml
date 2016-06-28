@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="client-3.2.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.virgilsecurity.sdk/client/3.2.1/5caa279e41f259039ce0726d606ba182c960aad1/client-3.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.virgilsecurity.sdk/client/3.2.1/3846354c2f3ec14d409f3be23e45434df1dbb91f/client-3.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

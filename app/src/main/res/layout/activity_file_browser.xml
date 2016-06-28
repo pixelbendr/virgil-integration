@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:wheel="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+
+        <FrameLayout
+                android:id="@+id/frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="?attr/colorPrimary"/>
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:background="@android:color/white"
+                android:padding="0dp">
+
+
+            <LinearLayout
+                    android:id="@+id/toolbar_linear_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:paddingBottom="2dp"
+                    >
+
+                <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_back_navi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/material_design_2"
+                        android:layout_marginStart="@dimen/material_design_2"
+                        android:src="@drawable/ic_black_arrow"
+                        app:backgroundTint="@android:color/transparent"
+                        app:elevation="0sp"
+                        app:fabSize="mini"
+                        />
+
+                <TextView
+                        android:id="@+id/text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/material_design_16"
+                        android:layout_marginStart="@dimen/material_design_16"
+                        android:layout_gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/black_54_pc"
+                        android:maxLines="1"
+                        android:lines="1"
+                        android:textSize="15sp"
+                        android:text="Albums"/>
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+            android:id="@+id/loader_relative_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            >
+
+        <TextView
+                android:id="@+id/text_connection"
+                style="@style/textSignupHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/text_loading"/>
+
+        <TextView
+                android:id="@+id/text_subtitle"
+                style="@style/textSignupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_below="@id/text_connection"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:text="@string/please_wait"
+                android:textColor="@color/black_54_pc"
+                />
+
+        <com.pnikosis.materialishprogress.ProgressWheel
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/text_subtitle"
+                android:layout_centerInParent="true"
+                wheel:matProg_barColor="?attr/colorPrimary"
+                wheel:matProg_progressIndeterminate="true"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

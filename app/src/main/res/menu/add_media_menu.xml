@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <item
+        android:id="@+id/gallery"
+        android:title="@string/gallery_text"
+        android:icon="@drawable/ic_gallery"/>
+    <item
+        android:id="@+id/camera"
+        android:title="@string/camera_text"
+        android:icon="@drawable/ic_photo"/>
+    <item
+        android:id="@+id/video"
+        android:title="@string/video_text"
+        android:icon="@drawable/ic_video"/>
+    <!--<item android:id="@+id/call" android:title="@string/call" android:icon="@drawable/perm_group_phone_calls"/>-->
+</menu>

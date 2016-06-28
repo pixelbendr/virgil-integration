@@ -1,0 +1,53 @@
+<!--<com.rengwuxian.materialedittext.MaterialEditText
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/text_profile_name"
+    android:textColor="@color/black_54_pc"
+    android:textColorHint="@color/black_54_pc"
+    android:layout_marginTop="@dimen/text_phone_number_margin_top"
+    android:textSize="@dimen/text_phone_number_text_size"
+    tools:text="Codebender"
+    android:maxLength="15"
+    android:hint="@string/profile_picture_hint"
+    android:gravity="start"
+    app:met_floatingLabel="normal"
+    app:met_baseColor="@color/dove_gray"
+    app:met_primaryColor="?attr/colorPrimary"
+    app:met_errorColor="@color/pomegranate"
+    android:fontFamily="@string/font_regular"
+    android:layout_marginEnd="@dimen/abc_action_bar_icon_vertical_padding_material"
+    android:layout_marginStart="@dimen/abc_action_bar_icon_vertical_padding_material">
+    <requestFocus/>
+</com.rengwuxian.materialedittext.MaterialEditText>-->
+<android.support.design.widget.TextInputLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:id="@+id/text_validation_code_layout"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_below="@id/text_regular_message"
+        android:gravity="center">
+
+    <EditText
+            android:id="@+id/text_validation_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_phone_number_margin_top"
+            tools:text="Codebender"
+            android:fontFamily="@string/font_regular"
+            android:gravity="center"
+            android:maxLength="15"
+            android:hint="@string/profile_picture_hint"
+            android:inputType="phone"
+            android:textColor="@color/black_54_pc"
+            android:textColorHint="@color/black_54_pc"
+            android:textSize="@dimen/text_phone_number_text_size"
+            android:layout_marginEnd="@dimen/abc_action_bar_icon_vertical_padding_material"
+            android:layout_marginStart="@dimen/abc_action_bar_icon_vertical_padding_material">
+        <requestFocus/>
+    </EditText>
+
+</android.support.design.widget.TextInputLayout>

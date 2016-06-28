@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="en">
+
+    <string name="app_name">Cyfa Beta</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_navigate">Next</string>
+    <string name="title_activity_cyfa_team">Cyfa Team</string>
+    <string name="launchscreen_description">launch screen</string>
+    <string name="welcome_text">Hi</string>
+    <string name="thanks_message">thanks for installing!</string>
+    <string name="welcome_message">Connect with friends and keep the <b>private</b> stuff private.</string>
+    <string name="theme_color_text">pick a theme color</string>
+    <string name="theme_color_text_message">Your theme color can be changed at anytime</string>
+    <string name="confirm_number_text">Cyfa needs to confirm your number</string>
+    <string name="enter_number_text">enter phone number</string>
+    <string name="profile_name_text">profile name here</string>
+    <string name="verification_code_text">code here</string>
+    <string name="passcode_text">passcode</string>
+    <string name="retype_passcode_text">re-type passcode</string>
+    <string name="promise_text">We promise not to share or sell your info</string>
+    <string name="privacy_policy_text">Please read our Privacy Policy</string>
+    <string name="verify_code_text">Verification Code</string>
+    <string name="verify_code_message_text">please enter the verification code\n we sent you</string>
+    <string name="auto_verify_code_message_text">your number was verified</string>
+    <string name="profile_name_message_text">please enter your profile name\n below</string>
+    <string name="phone_number_message_text">enter your phone number below. </string>
+    <string name="new_chat_title_text">New chat in </string>
+    <string name="resend_text">click below to resend the code if you don\'t receive it in 2 minutes</string>
+    <string name="change_number_text">Change Number</string>
+    <string name="regular_message_text">regular messages</string>
+    <string name="private_message_text">private messages. sketched messages.</string>
+    <string name="timestamped_message_text">timestamped messages.</string>
+    <string name="more_text">more</string>
+    <string name="profile_name_title_text">profile name</string>
+    <string name="phone_number_title_text">Your number</string>
+    <string name="back_arrow_description">back arrow</string>
+    <string name="application_logo">application logo</string>
+    <string name="welcome_icons">welcome icons</string>
+    <string name="privacy_policy_caption">We promise not to share or sell your info</string>
+    <string name="view_privacy_policy_text">View Our <u>Privacy Policy</u></string>
+    <string name="resend_button_text">Didn\'t get it? Tap to <b>resend</b></string>
+    <string name="re_enter_phone_number_text">re-enter phone number</string>
+    <string name="phone_icon_description">a picture of a phone</string>
+    <string name="lock_icon_description">a picture of a lock</string>
+    <string name="ready_arrow_icon_description">arrow pointing down</string>
+    <string name="color_text">pomegranate</string>
+    <string name="theme">theme</string>
+    <string name="search_text">Select Country</string>
+    <string name="validation_code_back_arrow_description">click to go back and change your number</string>
+    <string name="number_validation_title">Number Validation</string>
+    <string name="number_validation_subtitle">Please Confirm</string>
+    <string name="number_validation_message">
+        \n\n If this is your number?\nWe will SMS a validation code to you \n
+    </string>
+    <string name="walkthrough_logo_description">logo for walkthrough</string>
+    <string name="walkthrough_left_arrow_description">left arrow for walkthrough</string>
+
+
+    <string-array name="team_tabs">
+        <item>Chats</item>
+        <item>Feedback</item>
+        <item>About</item>
+    </string-array>
+
+    <string-array name="status_tabs">
+        <item>Feed</item>
+        <item>Contacts</item>
+    </string-array>
+    <string name="title_activity_chat">ChatActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="contact_search_hint">Search Contacts</string>
+    <string name="contact_image_description">your phone book contact images</string>
+
+    <string name="please_wait">Please wait…</string>
+    <string name="text_loading">Loading</string>
+    <string name="done">DONE</string>
+    <string name="skip_text">skip</string>
+    <string name="send_text">SEND</string>
+    <string name="write_message_hint">write message</string>
+    <string name="edit_text">EDIT</string>
+    <string name="save_text">SAVE</string>
+    <string name="next_text">NEXT</string>
+    <string name="theme_finish_button">FINISH</string>
+    <string name="later_text">LATER</string>
+    <string name="get_started_button_text">GET STARTED</string>
+    <string name="continue_button_text">CONTINUE</string>
+    <string name="welcome_button_text">LET\'S GO</string>
+    <string name="title_activity_loader">LoaderActivity</string>
+    <string name="text_syncing">Syncing</string>
+    <string name="text_syncing_contacts">Syncing Contacts</string>
+    <string name="text_connection_status">Connecting</string>
+    <string name="english_alphabets">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.@# </string>
+    <string name="text_message_hint">Write Message</string>
+
+    <string name="today_text">TODAY</string>
+    <string name="online_text">LIVE</string>
+    <string name="offline_text"><!--OFFLINE--></string>
+    <string name="typing_indicator_text"><i>IS TYPING&#8230;</i>
+        <!--&#8230;--></string>
+    <string name="live_typing_text"><i>LIVE TYPING&#8230;</i>
+        <!--&#8230;--></string>
+    <string name="members_text">MEMBERS</string>
+    <string name="connecting_text"><i>Connecting&#8230;</i></string>
+    <string name="new_message_text"><i>Loading New Messages&#8230;</i></string>
+
+    <string name="sent_status_text">SENT</string>
+    <string name="delete_message_text">DELETE</string>
+    <string name="edit_message_text">EDIT</string>
+    <string name="private_status_text">PRIVATE</string>
+    <string name="read_status_text">READ</string>
+    <string name="edit_status_text">WAS EDITED</string>
+    <string name="pending_status_text">PENDING</string>
+    <string name="take_photo_text">Take Photo</string>
+    <string name="gallery_text">Gallery</string>
+    <string name="camera_text">Camera</string>
+    <string name="video_text">Video</string>
+    <string name="more_options_text">More Options</string>
+    <string name="profile_text">View Profile</string>
+    <string name="delete_messages_text">Delete Messages</string>
+    <string name="do_not_disturb_text">Do Not Disturb</string>
+    <string name="block_text">Block User</string>
+    <string name="textChooseTimer">Choose Timer</string>
+    <string name="choose">Choose</string>
+    <string name="take_video_text">Take Video</string>
+    <string name="choose_photo_text">Choose Photo</string>
+    <string name="choose_video_text">Choose Video</string>
+    <string name="default_status_message">The man who moves a mountain begins by carrying away small stones.</string>
+    <string name="default_point_text">00</string>
+    <string name="choose_passcode_description">Passcode must be 4 characters</string>
+
+    <string-array name="timer_text">
+        <item>20</item>
+        <item>40</item>
+        <item>60</item>
+    </string-array>
+
+
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources tools:locale="en" xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="firebase_dev">https://cyfa-dev.firebaseio.com</string>
+    <string name="firebase_prod">https://cyfa-dev.firebaseio.com</string>
+
+    <string name="googleProjectNumber">28945780623</string>
+    <string name="oneSignalAppId">d2038084-3dbf-11e5-bcc4-af6b7bc0146f</string>
+
+    <string name="parse_applicationId_dev">wFViOpJC6HdotAW4mvJByRbzPR6nKSrOAkpN9FaQ</string>
+    <string name="parse_applicationId_prod">wFViOpJC6HdotAW4mvJByRbzPR6nKSrOAkpN9FaQ</string>
+
+    <string name="parse_clientKey_dev">Wv9owXuKniqqM0kCf6roxwCkLlIKxKvIGY2RXTk3</string>
+    <string name="parse_clientKey_prod">Wv9owXuKniqqM0kCf6roxwCkLlIKxKvIGY2RXTk3</string>
+
+    <string name="access_token">eyJpZCI6IjA5N2IzNTgwLTIwYjktNDBmMS04MDA5LTM1YTZhNWFjNWI4MCIsImFwcGxpY2F0aW9uX2NhcmRfaWQiOiJjNjI5N2FlNy1jMWJmLTQ1ODgtOWY1Yy00ODNmZThlNTU2ZmQiLCJ0dGwiOi0xLCJjdGwiOi0xLCJwcm9sb25nIjowfQ==.MFkwDQYJYIZIAWUDBAICBQAESDBGAiEA6elvMYzQuSScp5rvOdlnfwpsd9xY4BCgW76swaVaolECIQDFWC/WtSX0towkqdYQvpXxN35+8w3x7yJL4V7mQMaPSA==</string>
+
+</resources>

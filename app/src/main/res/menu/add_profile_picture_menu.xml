@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <item android:id="@+id/text_take_photo" android:title="@string/take_photo_text"/>
+    <item android:id="@+id/text_choose_photo" android:title="@string/choose_photo_text"/>
+    <!--<item android:id="@+id/call" android:title="@string/call" android:icon="@drawable/perm_group_phone_calls"/>-->
+
+</menu>

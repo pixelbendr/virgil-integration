@@ -1,0 +1,214 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="AppTheme.Base"/>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/danube</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/mariner</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+
+        <item name="android:textColorPrimary">@color/black_54_pc</item>
+        <item name="android:textColorSecondary">@color/black_54_pc</item>
+
+        <!-- navigation icon color -->
+        <item name="colorControlNormal">@android:color/white</item>
+
+        <!-- style for buttons -->
+        <item name="android:buttonStyle">@style/AppButton</item>
+
+        <!-- Here we set appcompat’s actionBarStyle -->
+        <item name="toolbarStyle">@style/toolbarStyle</item>
+        <item name="toolbarNavigationButtonStyle">@style/toolbarNavigationButtonStyle</item>
+
+        <item name="android:popupMenuStyle">@style/popupMenu</item>
+
+    </style>
+
+    <style name="AppTheme.Gray" parent="AppTheme.Base">
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/lynch</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/fiord</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.Red" parent="AppTheme.Base">
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/pomegranate</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/cinnabar</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.Yellow" parent="AppTheme.Base">
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/amber</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/selective_yellow</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.Orange" parent="AppTheme.Base">
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/california</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/gold_drop</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.Pink" parent="AppTheme.Base">
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/wild_strawberry</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/razzmatazz</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.Blue" parent="AppTheme.Base">
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/robins_egg_blue</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/pacific_blue</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.Green" parent="AppTheme.Base">
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">@color/green_haze</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/green_haze</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppButton" parent="android:Widget.Button">
+        <item name="android:buttonStyle">?android:attr/buttonBarButtonStyle</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <!-- Logo -->
+    <style name="welcomeLogo">
+        <item name="android:layout_marginTop">64dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <!-- Logo -->
+
+    <!-- Signup Button Style -->
+    <style name="buttonSignUp">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:fontFamily">@string/font_regular</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- Signup Button Style -->
+
+    <!-- Signup Text Header Style -->
+    <style name="textSignupHeader">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+    <!-- Signup Text Header Style -->
+
+    <!-- Signup Text Title Style -->
+    <style name="textSignupTitle">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/true_v</item>
+        <item name="android:fontFamily">@string/font_light</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- Signup Text Title Style -->
+
+    <!-- Ready text spacing -->
+    <style name="textReadySpacing" parent="textSignupTitle">
+        <item name="android:layout_marginTop">3dp</item>
+    </style>
+    <!-- Ready text spacing -->
+
+    <!-- more text style -->
+    <style name="textMore" parent="textSignupTitle">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:fontFamily">@string/font_regular</item>
+    </style>
+    <!-- more text style -->
+
+    <style name="menu_labels_style">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-regular</item>
+        <item name="android:background">@drawable/fab_text_background</item>
+        <item name="android:elevation" tools:targetApi="LOLLIPOP">8dp</item>
+    </style>
+
+    <style name="SignUpEditText" parent="AppTheme">
+        <item name="android:textColor">@color/dove_gray</item>
+    </style>
+
+    <style name="AppParentTheme" parent="AppTheme">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="toolbarNavigationButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="toolbarStyle" parent="AppTheme">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+
+    <style name="popupMenu" parent="Widget.AppCompat.Light.PopupMenu">
+        <item name="android:textColor">@color/black_54_pc</item>
+    </style>
+
+    <!--parent alignment-->
+    <style name="parentAlignmentLeft">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+
+    <style name="layoutCenter">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="parentAlignmentRight">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>
+        <item name="android:textColorPrimary">@color/dove_gray</item>
+        <item name="android:textColorSecondary">?attr/colorPrimary</item>
+        <item name="android:textColorHint">@color/dove_gray</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+</resources>

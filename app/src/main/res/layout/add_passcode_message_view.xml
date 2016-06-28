@@ -1,0 +1,23 @@
+<android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/text_pass_code_layout"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        app:errorEnabled="true"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+            android:id="@+id/text_pass_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
+            android:fontFamily="@string/font_regular"
+            android:hint="@string/passcode_text"
+            android:inputType="phone"
+            android:maxLength="4"
+            android:textColor="@color/black_54_pc"
+            android:textColorHint="@color/black_54_pc"
+            android:textSize="@dimen/text_phone_number_text_size"/>
+
+</android.support.design.widget.TextInputLayout>

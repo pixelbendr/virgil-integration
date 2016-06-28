@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              style="@style/AppParentTheme"
+              android:orientation="vertical">
+
+    <!--<com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_country_search"
+        android:textColor="@color/black_54_pc"
+        android:textColorHint="@color/black_54_pc"
+        android:layout_marginTop="3dp"
+        android:drawableRight="@drawable/ic_search"
+        android:drawableEnd="@drawable/ic_search"
+        android:textSize="16sp"
+        android:hint="@string/search_text"
+        app:met_floatingLabel="normal"
+        app:met_baseColor="@color/black_54_pc"
+        app:met_primaryColor="@color/black_54_pc"
+        app:met_errorColor="@color/pomegranate"
+        android:fontFamily="sans-serif-regular"
+        android:layout_marginRight="@dimen/abc_action_bar_icon_vertical_padding_material"
+        android:layout_marginEnd="@dimen/abc_action_bar_icon_vertical_padding_material"
+        android:layout_marginLeft="@dimen/abc_action_bar_icon_vertical_padding_material"
+        android:layout_marginStart="@dimen/abc_action_bar_icon_vertical_padding_material">
+
+        <requestFocus/>
+    </com.rengwuxian.materialedittext.MaterialEditText>-->
+
+    <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center">
+
+        <EditText
+                android:id="@+id/text_country_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@string/font_regular"
+                android:hint="@string/search_text"
+                android:layout_marginRight="@dimen/abc_action_bar_icon_vertical_padding_material"
+                android:layout_marginEnd="@dimen/abc_action_bar_icon_vertical_padding_material"
+                android:layout_marginLeft="@dimen/abc_action_bar_icon_vertical_padding_material"
+                android:layout_marginStart="@dimen/abc_action_bar_icon_vertical_padding_material"
+                tools:text="Search"
+                android:textColor="@color/black_54_pc"
+                android:textColorHint="@color/black_54_pc"
+                android:textSize="16sp">
+            <requestFocus/>
+        </EditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <ListView
+            android:id="@+id/country_listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@android:color/transparent"
+            tools:listitem="@layout/country_item"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp">
+    </ListView>
+
+</LinearLayout>

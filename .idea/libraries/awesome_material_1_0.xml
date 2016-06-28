@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="awesome-material-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/cyd.awesome.android/awesome-material/1.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/cyd.awesome.android/awesome-material/1.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cyd.awesome.android/awesome-material/1.0/be0da44f5da3ce6787f25657700beb368b87d042/awesome-material-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/row_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/black_54_pc"
+    android:singleLine="true"
+    tools:text="Ghana"
+    android:textSize="@dimen/abc_text_size_body_1_material"
+    tools:drawableLeft="@drawable/flag_gh"
+    tools:drawableStart="@drawable/flag_gh"
+    android:drawablePadding="8dp"
+    android:gravity="center_vertical"
+    android:padding="10dp"/>

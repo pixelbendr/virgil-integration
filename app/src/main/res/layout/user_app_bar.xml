@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    app:layout_collapseMode="pin"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/group_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_dp_default"
+            app:siBorderColor="?attr/colorPrimary"/>
+
+        <TextView
+            android:id="@android:id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/title"
+            android:layout_marginLeft="73dp"
+            android:layout_marginStart="73dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@string/font_light"
+            android:text="Available"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="73dp"
+            android:layout_marginStart="73dp"
+            android:fontFamily="@string/font_medium"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            tools:text="Karen May"/>
+
+        <TextView
+            android:id="@+id/text_connection_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@android:id/summary"
+            android:layout_marginLeft="73dp"
+            android:layout_marginStart="73dp"
+            android:layout_marginTop="3dp"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:fontFamily="@string/font_medium"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:textStyle="bold"
+            tools:text="Connecting"/>
+
+        <com.pnikosis.materialishprogress.ProgressWheel
+            android:id="@+id/progressWheel"
+            android:layout_width="13dp"
+            android:visibility="gone"
+            android:layout_height="13dp"
+            android:layout_below="@android:id/summary"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@id/text_connection_status"
+            android:layout_toRightOf="@id/text_connection_status"
+            app:matProg_barColor="@android:color/white"
+            app:matProg_progressIndeterminate="true"/>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>

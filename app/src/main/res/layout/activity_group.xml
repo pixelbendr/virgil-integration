@@ -1,0 +1,160 @@
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/AppParentTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.psyphertxt.android.cyfa.ui.activity.ChatActivity">
+
+    <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="?attr/colorPrimary"/>
+
+    <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/frame_layout"
+            android:layout_margin="0dp"
+            android:background="@android:color/white"
+            android:padding="0dp">
+
+        <RelativeLayout
+                android:id="@+id/toolbar_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="2dp">
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                    android:id="@+id/group_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/material_design_16"
+                    android:layout_marginRight="@dimen/material_design_16"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_dp_default"
+                    app:siBorderColor="@android:color/white"/>
+            <!--app:siBorderWidth="6dp"-->
+            <!--app:siBorderColor="@color/darkgray"-->
+
+            <TextView
+                    android:id="@+id/text_group_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@+id/group_image"
+                    android:layout_toStartOf="@+id/group_image"
+                    android:fontFamily="@string/font_light"
+                    android:singleLine="true"
+                    android:textColor="@color/black_54_pc"
+                    android:textSize="16sp"
+                    tools:text="Cyfa Group"/>
+
+            <TextView
+                    android:id="@+id/text_group_members"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_group_name"
+                    android:layout_marginEnd="@dimen/material_design_16"
+                    android:layout_marginRight="@dimen/material_design_16"
+                    android:layout_toLeftOf="@+id/group_image"
+                    android:layout_toStartOf="@+id/group_image"
+                    android:fontFamily="@string/font_regular"
+                    android:paddingBottom="7dp"
+                    android:singleLine="true"
+                    android:textColor="@color/limeade"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:text="7 MEMBERS"/>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+            android:id="@+id/status_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/toolbar"
+            android:layout_below="@id/frame_layout"
+            android:layout_margin="0dp"
+            android:background="@color/cod_gray"
+            android:orientation="vertical"
+            android:padding="0dp"
+            android:visibility="gone">
+
+        <TextView
+                android:id="@+id/text_last_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@string/font_regular"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Dennis Mendez"/>
+
+        <TextView
+                android:id="@+id/text_last_message_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@string/font_light"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="Synth polaroid bitters chillwave pickled..."/>
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/text_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/toolbar"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@string/font_regular"
+            android:singleLine="true"
+            android:text="@string/today_text"
+            android:textColor="@color/silver_chalice"
+            android:textSize="10sp"
+            android:textStyle="bold"/>
+
+    <include
+            android:id="@+id/send_message_view"
+            layout="@layout/send_message_view"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/send_message_view"
+            android:layout_below="@id/text_today"
+            android:scrollbars="vertical"
+            />
+
+
+</RelativeLayout>

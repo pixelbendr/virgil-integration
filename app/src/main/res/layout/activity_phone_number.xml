@@ -1,0 +1,198 @@
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/AppParentTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.psyphertxt.android.cyfa.ui.activity.startup.PhoneNumberActivity">
+
+    <View
+            android:id="@+id/steps_bar_indicator"
+            android:layout_width="124dp"
+            android:layout_height="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="@dimen/validation_code_view_top_margin"
+            android:background="@color/silver"
+            />
+
+    <View
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:layout_alignLeft="@id/steps_bar_indicator"
+            android:layout_alignStart="@id/steps_bar_indicator"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/open_circle_fill"
+            />
+
+    <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_alignLeft="@id/steps_bar_indicator"
+            android:layout_alignStart="@id/steps_bar_indicator"
+            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="27dp"
+            android:background="@drawable/open_circle"
+            />
+
+    <View
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_alignLeft="@id/steps_bar_indicator"
+            android:layout_alignStart="@id/steps_bar_indicator"
+            android:layout_marginLeft="63dp"
+            android:layout_marginStart="63dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/open_circle"
+            />
+
+    <View
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignLeft="@id/steps_bar_indicator"
+            android:layout_alignStart="@id/steps_bar_indicator"
+            android:layout_marginLeft="81dp"
+            android:layout_marginStart="81dp"
+            android:layout_marginTop="27dp"
+            android:background="@drawable/open_circle"
+            />
+
+    <ImageView
+            android:id="@+id/lock_icon"
+            android:layout_width="@dimen/phone_icon_size"
+            android:layout_height="@dimen/phone_icon_size"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/lock_icon_top_margin"
+            android:contentDescription="@string/phone_icon_description"
+            android:src="@drawable/ic_phone"/>
+
+
+    <com.psyphertxt.android.cyfa.ui.widget.TypefaceTextView
+            android:id="@+id/text_phone_number_title"
+            style="@style/textSignupHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lock_icon"
+            android:text="@string/phone_number_title_text"
+            app:typeface="Roboto-Light"/>
+
+    <TextView
+            android:id="@+id/text_phone_number_message"
+            style="@style/textSignupTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_phone_number_title"
+            android:layout_marginEnd="@dimen/resend_text_spacing"
+            android:layout_marginLeft="@dimen/resend_text_spacing"
+            android:layout_marginRight="@dimen/resend_text_spacing"
+            android:layout_marginStart="@dimen/resend_text_spacing"
+            android:text="@string/phone_number_message_text"
+            />
+
+    <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_phone_number_message"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/material_design_16"
+            android:layout_marginLeft="@dimen/material_design_16"
+            android:layout_marginRight="@dimen/material_design_16"
+            android:layout_marginStart="@dimen/material_design_16"
+            android:layout_marginTop="@dimen/phone_number_linear_layout_margin_top"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/text_calling_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_regular"
+
+                android:layout_marginEnd="@dimen/material_design_16"
+                android:layout_marginLeft="@dimen/material_design_16"
+                android:layout_marginRight="@dimen/material_design_16"
+                android:layout_marginStart="@dimen/material_design_16"
+                android:paddingBottom="@dimen/text_calling_code_padding"
+                android:paddingTop="@dimen/text_calling_code_padding"
+                android:textColor="@color/dove_gray"
+                android:textColorHint="@color/dove_gray"
+                android:textSize="@dimen/text_calling_code_text_size"
+                tools:text="Ghana (+233)"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/material_design_16"
+                android:layout_marginLeft="@dimen/material_design_16"
+                android:layout_marginRight="@dimen/material_design_16"
+                android:layout_marginStart="@dimen/material_design_16"
+                android:background="@color/danube"
+                />
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center">
+
+            <EditText
+                    android:id="@+id/text_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_phone_number_margin_top"
+                    android:fontFamily="@string/font_regular"
+                    android:gravity="center"
+                    android:hint="@string/enter_number_text"
+
+                    android:layout_marginEnd="@dimen/material_design_16"
+                    android:layout_marginLeft="@dimen/material_design_16"
+                    android:layout_marginRight="@dimen/material_design_16"
+                    android:layout_marginStart="@dimen/material_design_16"
+                    android:inputType="phone"
+                    android:maxLength="17"
+                    android:textColor="@color/black_54_pc"
+                    android:textColorHint="@color/black_54_pc"
+                    android:textSize="@dimen/text_phone_number_text_size"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/button_continue"
+            style="@style/buttonSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/continue_button_text"
+            />
+
+    <TextView
+            android:id="@+id/text_view_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/button_continue"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/privacy_policy_margin_bottom"
+            android:text="@string/view_privacy_policy_text"
+            android:textColor="@color/havelock_blue"
+            android:textSize="@dimen/view_privacy_policy_text_size"/>
+
+    <TextView
+            android:id="@+id/text_privacy_policy_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/text_view_privacy_policy"
+            android:layout_centerHorizontal="true"
+            android:text="@string/privacy_policy_caption"
+            android:textColor="@color/dove_gray"
+            android:textSize="@dimen/privacy_policy_caption_text_size"/>
+
+</RelativeLayout>

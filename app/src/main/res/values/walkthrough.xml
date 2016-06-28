@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources tools:locale="en" xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="profile_picture">Profile Picture</string>
+    <string name="profile_subtitle">add profile picture</string>
+    <string name="chat_media_subtitle">Choose Media</string>
+    <string name="profile_picture_hint">add profile picture here</string>
+    <string name="profile_description">When you send messages on cyfa, people identify you by your
+        profile picture.
+    </string>
+
+    <string name="edit_message_title">Edit Message</string>
+    <string name="passcode_message_title">Enter Passcode</string>
+    <string name="choose_passcode_message_title">Choose Passcode</string>
+    <string name="delete_message_title">Delete Message</string>
+
+    <string name="status_name">Status Message</string>
+    <string name="status_subtitle">add a status message</string>
+    <string name="status_message_hint">add a status message here</string>
+    <string name="status_description">Your friends would love to know what you are thinking.
+    </string>
+
+    <string name="welcome_name">Welcome to Cyfa</string>
+    <string name="welcome_subtitle">find out more</string>
+    <string name="welcome_description">Cyfa makes it easy for you to send private messages and more
+    </string>
+
+    <string name="first_message_name">First Message</string>
+    <string name="first_message_subtitle">send message</string>
+    <string name="first_message_description">Cyfa makes it easy for you to send private messages and more
+    </string>
+
+
+
+</resources>

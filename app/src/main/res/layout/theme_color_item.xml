@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:background="@drawable/theme_color_shape"
+        android:id="@+id/themeColor"/>
+
+    <FrameLayout
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/theme_color_white_shape"
+        android:id="@+id/themeSelectedColor"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="11dp"
+        android:id="@+id/icon_check_image"
+        android:src="@drawable/ico_check"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"/>
+
+
+</RelativeLayout>
+

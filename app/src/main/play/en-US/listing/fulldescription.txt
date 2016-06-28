@@ -1,0 +1,2 @@
+Send private messages, you control the messages you send.
+Everything from timestamped messages, sketched messages

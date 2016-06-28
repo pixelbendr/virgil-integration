@@ -172,7 +172,7 @@ dependencies {
         transitive = true;
     }
 
-    compile 'com.virgilsecurity.sdk:client:3.2.1'
+    compile 'com.virgilsecurity.sdk:android:3.2.1@aar'
     compile 'com.squareup.retrofit2:retrofit:2.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
 

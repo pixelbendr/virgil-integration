@@ -443,7 +443,7 @@ public class MessageChannel {
             message.setSignature((String) map.get("signature"));
 
         } catch (Exception e) {
-            new Testable.Spec().describe("encryption failed").expect("failed").run();
+            new Testable.Spec().describe("encryption failed").expect(e.getMessage()).run();
         }
    //     message.setText(chat.getText());
 

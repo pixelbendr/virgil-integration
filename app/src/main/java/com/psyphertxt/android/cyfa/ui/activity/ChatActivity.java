@@ -44,9 +44,12 @@ import com.virgilsecurity.sdk.client.ClientFactory;
 import com.virgilsecurity.sdk.client.model.publickey.VirgilCard;
 import com.virgilsecurity.sdk.crypto.KeyPair;
 import com.virgilsecurity.sdk.crypto.KeyPairGenerator;
+import com.virgilsecurity.sdk.crypto.PrivateKey;
+import com.virgilsecurity.sdk.crypto.PublicKey;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -193,6 +196,8 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
     private int statusColor;
     private int statusGreenColor;
+    private PrivateKey privateKey;
+    private PublicKey publicKey;
 
     private String encryptionKey;
 
@@ -215,6 +220,46 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
     private KeyPair keyPair;
     private VirgilCard virgilCard;
 
+    public class TalkToServer extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+        /*
+         *    do things before doInBackground() code runs
+         *    such as preparing and showing a Dialog or ProgressBar
+        */
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+        /*
+         *    updating data
+         *    such a Dialog or ProgressBar
+        */
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            //do your work here
+            virgilCard = SecurityUtils.validate(getClientFactory(), keyPair);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            new Testable.Spec("Post Execute").describe("execute value").run();
+            publicKey = keyPair.getPublic();
+            privateKey = keyPair.getPrivate();
+        /*
+         *    do something with data here
+         *    display it or send to mainactivity
+         *    close any dialogs/ProgressBars/etc...
+        */
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -228,17 +273,8 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         clientFactory = new ClientFactory(getString(R.string.access_token));
         keyPair = KeyPairGenerator.generate();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    virgilCard = SecurityUtils.validate(getClientFactory(), keyPair);
-                } catch (Exception e) {
-                   new Testable.Spec("Virgil Error").describe("error on validate").expect(e.getMessage()).run();
-                }
-            }
-        }).start();
-
+        TalkToServer talktoServer = new TalkToServer();
+        talktoServer.execute();
 
 
         //prevent screenshot

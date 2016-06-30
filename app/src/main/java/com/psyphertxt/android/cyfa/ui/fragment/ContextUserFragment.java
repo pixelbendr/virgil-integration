@@ -72,6 +72,15 @@ public class ContextUserFragment extends Fragment {
         youssouf.setProfile(yousoufProfile);
         adapter.listManager.addItem(youssouf);
 
+        //Codebender
+        ContextUser teonit = new ContextUser();
+        teonit.setProfileName("Teonit");
+        teonit.setUserId("o1cR9BMrhY");
+        Profile teonitProfile = new Profile();
+        teonitProfile.setPlayerId("b3a59dfa-d428-468e-bc73-2ca9050fd346");
+        teonit.setProfile(teonitProfile);
+        adapter.listManager.addItem(teonit);
+
 
 
         return view;

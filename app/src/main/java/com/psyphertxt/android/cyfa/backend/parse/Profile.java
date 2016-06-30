@@ -1,24 +1,16 @@
 package com.psyphertxt.android.cyfa.backend.parse;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.TextView;
-
-import com.parse.FunctionCallback;
 import com.parse.ParseClassName;
-import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 import com.psyphertxt.android.cyfa.Config;
 import com.psyphertxt.android.cyfa.ui.listeners.CallbackListener;
-import com.psyphertxt.android.cyfa.util.NetworkUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import android.app.Activity;
+import android.view.View;
+import android.widget.TextView;
 
 import de.greenrobot.event.EventBus;
 

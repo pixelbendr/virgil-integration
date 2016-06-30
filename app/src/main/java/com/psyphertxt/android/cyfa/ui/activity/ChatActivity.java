@@ -220,6 +220,8 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
     private KeyPair keyPair;
     private VirgilCard virgilCard;
 
+
+    //virgil-integration
     public class TalkToServer extends AsyncTask<Void, Void, Void> {
 
         @Override

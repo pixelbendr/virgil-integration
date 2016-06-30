@@ -273,8 +273,16 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         clientFactory = new ClientFactory(getString(R.string.access_token));
         keyPair = KeyPairGenerator.generate();
 
-        TalkToServer talktoServer = new TalkToServer();
-        talktoServer.execute();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    virgilCard = SecurityUtils.validate(getClientFactory(), keyPair);
+                } catch (Exception e) {
+                    new Testable.Spec("Virgil Error").describe("error on validate").expect(e.getMessage()).run();
+                }
+            }
+        }).start();
 
 
         //prevent screenshot

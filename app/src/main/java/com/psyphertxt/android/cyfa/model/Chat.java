@@ -7,6 +7,7 @@ import com.psyphertxt.android.cyfa.backend.firebase.model.Message;
 import com.psyphertxt.android.cyfa.util.SecurityUtils;
 import com.psyphertxt.android.cyfa.util.Testable;
 import com.psyphertxt.android.cyfa.util.TimeUtils;
+import com.virgilsecurity.sdk.crypto.PrivateKey;
 
 import java.security.GeneralSecurityException;
 import java.util.Date;
@@ -54,10 +55,10 @@ public class Chat {
 
         setUserId(message.getUserId());
         setMessageId(messageId);
-        if(message.getDeliveryStatus() >= 0) {
+        if (message.getDeliveryStatus() >= 0) {
             setDeliveryStatus(message.getDeliveryStatus());
         }
-        if(message.getMessageType() >= 0) {
+        if (message.getMessageType() >= 0) {
             setMessageType(message.getMessageType());
         }
 
@@ -74,27 +75,19 @@ public class Chat {
 
     }
 
-    public void messageDecryption(Message message, String deviceUserId, String deviceUserKey, String contextUserKey) {
+    public void messageDecryption(Message message, String deviceUserId, PrivateKey privateKey) {
 
-        String key;
 
-        if (message.getUserId().equals(deviceUserId)) {
-            key = contextUserKey;
-        } else {
-            key = deviceUserKey;
+        //  setText(message.getText());
+        try {
+            setText(SecurityUtils.decrypt(message.getText(), deviceUserId, privateKey));
+        } catch (Exception e) {
+            setText("error decryption text");
         }
-
-        setText(message.getText());
-
-//        try {
-//            setText(SecurityUtils.decrypt(key, message.getText()));
-//        } catch (GeneralSecurityException e) {
-//            setText(message.getText());
-//            new Testable.Spec().describe("decrypt failed").expect("failed").run();
-//        }
     }
 
     //TODO move params to public properties to reduce length of params
+
     /**
      * update messages when their being loaded since messages contain just userId
      * we need to resolve the id's and differentiate between deviceUser/sender from

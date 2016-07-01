@@ -178,33 +178,19 @@ public class SecurityUtils {
     }
 
     //virgil-integration
-    public static Map<String, Object> encrypt(String cardId, PublicKey publicKey, PrivateKey privateKey, String message) throws Exception {
+    public static Map<String, Object> encrypt(String userId, PublicKey publicKey, PrivateKey privateKey, String message) throws Exception {
 
         Map<String, Object> encryption = new HashMap<>();
-        String encryptedMessage = CryptoHelper.encrypt(message, cardId,publicKey);
+        String encryptedMessage = CryptoHelper.encrypt(message, userId, publicKey);
         String signature = CryptoHelper.sign(encryptedMessage, privateKey);
-        encryption.put("text",encryptedMessage);
-        encryption.put("signature",signature);
+        encryption.put("text", encryptedMessage);
+        encryption.put("signature", signature);
         return encryption;
 
     }
 
-    //virgil-integration
-    public static KeyPair generateKeyPair() {
-
-        return KeyPairGenerator.generate();
-    }
-
-    //virgil-integration
-    public static VirgilCard validate(ClientFactory clientFactory,KeyPair keyPair) {
-
-        Identity identity = new ValidatedIdentity(IdentityType.EMAIL, User.getDeviceUser().getUsername());
-
-        VirgilCardTemplate.Builder vcBuilder = new VirgilCardTemplate.Builder()
-                .setIdentity(identity)
-                .setPublicKey(keyPair.getPublic());
-        return clientFactory.getPublicKeyClient()
-                .createCard(vcBuilder.build(), keyPair.getPrivate());
+    public static String decrypt(String message, String userId, PrivateKey privateKey) throws Exception {
+        return CryptoHelper.decrypt(message, userId, privateKey);
     }
 
     public static String decrypt(String Password, String cypherText) throws GeneralSecurityException {

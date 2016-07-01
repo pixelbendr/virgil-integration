@@ -1039,20 +1039,12 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         return status;
     }
 
-    private String contextUserEncryption() {
-        return encryptionKey + contextUserId + deviceUserId;
-    }
-
-    public String deviceUserEncryption() {
-        return encryptionKey + deviceUserId + contextUserId;
-    }
-
     @Override
     public void populateView(Message message, DataSnapshot child) {
 
         final Chat chat = new Chat();
         chat.updateMessages(message, child, deviceUserId, contextUserProfileName);
-        chat.messageDecryption(message, deviceUserId, deviceUserEncryption(), contextUserEncryption());
+        chat.messageDecryption(message, deviceUserId, privateKey);
 
         //lets check if the message is a timer message
         if (message.getTimer() != null) {
@@ -1135,7 +1127,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
         final Chat chat = new Chat();
         chat.incomingMessages(message, child.getKey(), contextUserProfileName);
-        chat.messageDecryption(message, deviceUserId, deviceUserEncryption(), contextUserEncryption());
+        chat.messageDecryption(message, deviceUserId, privateKey);
         chat.setRef(child.getRef());
 
         if (message.getTimer() != null) {
@@ -1233,13 +1225,15 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
     @Override
     public void edited(Message message, DataSnapshot child) {
         if (message.getDeliveryStatus() == DeliveryStatus.EDITED) {
-//            try {
-//                String text = SecurityUtils.decrypt(contextUserEncryption(), message.getText());
-//                updateEditedChatUI(child.getKey(), text);
-//            } catch (GeneralSecurityException e) {
-//                e.printStackTrace();
-//            }
-            updateEditedChatUI(child.getKey(), message.getText());
+
+            try {
+                String text = SecurityUtils.decrypt(message.getText(), deviceUserId);
+                updateEditedChatUI(child.getKey(), text);
+            }catch (Exception e){
+
+            }
+
+         //   updateEditedChatUI(child.getKey(), message.getText());
         }
     }
 

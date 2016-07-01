@@ -239,10 +239,10 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         listenerBinding = Foreground.get(getApplication()).addListener(this);
 
         //virgil-integration
-        if(settings.getCardId().isEmpty() && settings.getPrivateKey().isEmpty() && settings.getPublicKey().isEmpty()) {
+        if (settings.getCardId().isEmpty() && settings.getPrivateKey().isEmpty() && settings.getPublicKey().isEmpty()) {
             authTask = new UserRegisterTask(User.getDeviceUser().getUsername());
             authTask.execute((Void) null);
-        }else{
+        } else {
             publicKey = new PublicKey(settings.getPublicKey());
             privateKey = new PrivateKey(settings.getPrivateKey());
         }
@@ -367,7 +367,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
         //send message to server via multiple channel update
         //virgil-integration
-        messageChannel.send(deviceUserId, publicKey,privateKey, new MessageListener.onMessage() {
+        messageChannel.send(deviceUserId, publicKey, privateKey, new MessageListener.onMessage() {
             @Override
             public void pending(final Chat chat) {
 
@@ -1044,7 +1044,11 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
         final Chat chat = new Chat();
         chat.updateMessages(message, child, deviceUserId, contextUserProfileName);
-        chat.messageDecryption(message, deviceUserId, privateKey);
+        if (chat.getUserId().equals(deviceUserId)){
+            chat.messageDecryption(message, contextUserId, privateKey);
+        }else{
+            chat.messageDecryption(message, deviceUserId, privateKey);
+        }
 
         //lets check if the message is a timer message
         if (message.getTimer() != null) {
@@ -1127,7 +1131,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
         final Chat chat = new Chat();
         chat.incomingMessages(message, child.getKey(), contextUserProfileName);
-        chat.messageDecryption(message, deviceUserId, privateKey);
+        chat.messageDecryption(message, contextUserId, privateKey);
         chat.setRef(child.getRef());
 
         if (message.getTimer() != null) {
@@ -1229,11 +1233,11 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
             try {
                 String text = SecurityUtils.decrypt(message.getText(), deviceUserId);
                 updateEditedChatUI(child.getKey(), text);
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
 
-         //   updateEditedChatUI(child.getKey(), message.getText());
+            //   updateEditedChatUI(child.getKey(), message.getText());
         }
     }
 
@@ -1532,7 +1536,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
             builder.setPublicKey(keyPair.getPublic());
 
             try {
-              //  String actionId = getClientFactory().getIdentityClient().verify(IdentityType.EMAIL, email);
+                //  String actionId = getClientFactory().getIdentityClient().verify(IdentityType.EMAIL, email);
 
                 VirgilCard card = getClientFactory().getPublicKeyClient().createCard(builder.build(), keyPair.getPrivate());
 
@@ -1540,8 +1544,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
                 new Testable.Spec("Registered Identity").describe("value of email").expect(email).run();
                 new Testable.Spec("Registered Identity").describe("value of card id").expect(card.getId()).run();
-            }
-            catch (ServiceException e) {
+            } catch (ServiceException e) {
                 // TODO: show error message
                 new Testable.Spec("Registered Identity").describe("error").expect(e.getMessage()).run();
                 return false;

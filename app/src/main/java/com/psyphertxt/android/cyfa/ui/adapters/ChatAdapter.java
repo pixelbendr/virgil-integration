@@ -281,7 +281,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                                 recyclerView.scrollToPosition(position);
 
                                 try {
-                                    MessageChannel.editMessage(chatActivity.deviceUserEncryption(), chat, txtEditedMessage.getText().toString(), new CallbackListener.callback() {
+                                    MessageChannel.editMessage(chat.getUserId(), chat, txtEditedMessage.getText().toString(), new CallbackListener.callback() {
                                         @Override
                                         public void success() {
 
@@ -365,7 +365,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                             notifyItemChanged(position);
                             recyclerView.scrollToPosition(position);
                             try {
-                                MessageChannel.deletePrivateMessage(chatActivity.deviceUserEncryption(), chat, new CallbackListener.callback() {
+                                MessageChannel.deletePrivateMessage(chat.getUserId(), chat, new CallbackListener.callback() {
                                     @Override
                                     public void success() {
 

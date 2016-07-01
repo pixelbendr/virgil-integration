@@ -82,7 +82,7 @@ public class Chat {
         try {
             setText(SecurityUtils.decrypt(message.getText(), deviceUserId, privateKey));
         } catch (Exception e) {
-            setText("error decryption text");
+            setText("error decrypting text");
         }
     }
 

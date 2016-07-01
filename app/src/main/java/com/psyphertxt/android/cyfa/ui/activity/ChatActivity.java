@@ -1,6 +1,5 @@
 package com.psyphertxt.android.cyfa.ui.activity;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -41,22 +40,32 @@ import com.psyphertxt.android.cyfa.util.SecurityUtils;
 import com.psyphertxt.android.cyfa.util.Testable;
 import com.psyphertxt.android.cyfa.util.TimeUtils;
 import com.virgilsecurity.sdk.client.ClientFactory;
+import com.virgilsecurity.sdk.client.exceptions.ServiceException;
+import com.virgilsecurity.sdk.client.model.IdentityType;
+import com.virgilsecurity.sdk.client.model.identity.ValidatedIdentity;
+import com.virgilsecurity.sdk.client.model.privatekey.PrivateKeyInfo;
+import com.virgilsecurity.sdk.client.model.publickey.SearchCriteria;
 import com.virgilsecurity.sdk.client.model.publickey.VirgilCard;
+import com.virgilsecurity.sdk.client.model.publickey.VirgilCardTemplate;
+import com.virgilsecurity.sdk.crypto.Base64;
 import com.virgilsecurity.sdk.crypto.KeyPair;
 import com.virgilsecurity.sdk.crypto.KeyPairGenerator;
 import com.virgilsecurity.sdk.crypto.PrivateKey;
 import com.virgilsecurity.sdk.crypto.PublicKey;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -66,8 +75,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.security.GeneralSecurityException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.InjectView;
@@ -219,48 +228,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
     private KeyPair keyPair;
     private VirgilCard virgilCard;
-
-
-    //virgil-integration
-    public class TalkToServer extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-        /*
-         *    do things before doInBackground() code runs
-         *    such as preparing and showing a Dialog or ProgressBar
-        */
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {
-        /*
-         *    updating data
-         *    such a Dialog or ProgressBar
-        */
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            //do your work here
-            virgilCard = SecurityUtils.validate(getClientFactory(), keyPair);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-
-            new Testable.Spec("Post Execute").describe("execute value").run();
-            publicKey = keyPair.getPublic();
-            privateKey = keyPair.getPrivate();
-        /*
-         *    do something with data here
-         *    display it or send to mainactivity
-         *    close any dialogs/ProgressBars/etc...
-        */
-        }
-    }
+    private UserRegisterTask authTask = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -272,20 +240,10 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         listenerBinding = Foreground.get(getApplication()).addListener(this);
 
         //virgil-integration
-        clientFactory = new ClientFactory(getString(R.string.access_token));
-        keyPair = KeyPairGenerator.generate();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    virgilCard = SecurityUtils.validate(getClientFactory(), keyPair);
-                } catch (Exception e) {
-                    new Testable.Spec("Virgil Error").describe("error on validate").expect(e.getMessage()).run();
-                }
-            }
-        }).start();
-
+        if(settings.getCardId().isEmpty()) {
+            authTask = new UserRegisterTask(User.getDeviceUser().getUsername());
+            authTask.execute((Void) null);
+        }
 
         //prevent screenshot
         SecurityUtils.setScreenCaptureAllowed(ChatActivity.this, false);
@@ -1554,6 +1512,132 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         if (chat.getDeliveryStatus() == DeliveryStatus.PENDING ||
                 chat.getDeliveryStatus() == DeliveryStatus.SENT) {
             contextUserChannel.updateStatus(createStatus(chat), UserChannel.UPDATE_CHILDREN);
+        }
+    }
+
+    /**
+     * Represents an asynchronous registration task used to register new VirgilCard.
+     */
+    public class UserRegisterTask extends AsyncTask<Void, Void, Boolean> {
+
+        private final String email;
+        private String cardId;
+
+        UserRegisterTask(String email) {
+            this.email = email;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            keyPair = KeyPairGenerator.generate();
+            VirgilCardTemplate.Builder builder = new VirgilCardTemplate.Builder();
+            builder.setIdentity(new ValidatedIdentity(IdentityType.EMAIL, email));
+            builder.setPublicKey(keyPair.getPublic());
+
+            try {
+              //  String actionId = getClientFactory().getIdentityClient().verify(IdentityType.EMAIL, email);
+
+                VirgilCard card = getClientFactory().getPublicKeyClient().createCard(builder.build(), keyPair.getPrivate());
+
+                cardId = card.getId();
+
+                new Testable.Spec("Registered Identity").describe("value of email").expect(email).run();
+                new Testable.Spec("Registered Identity").describe("value of card id").expect(card.getId()).run();
+            }
+            catch (ServiceException e) {
+                // TODO: show error message
+                new Testable.Spec("Registered Identity").describe("error").expect(e.getMessage()).run();
+                return false;
+            }
+
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            authTask = null;
+
+            if (success) {
+                settings.setIdentity(email);
+                settings.setCardId(cardId);
+                settings.setPrivateKey(keyPair.getPrivate().getAsString());
+                settings.setPublicKey(keyPair.getPublic().getAsString());
+            } else {
+                // TODO: registration failed
+                new Testable.Spec("Registered Identity").describe("registration failed").expect("error").run();
+            }
+        }
+
+        @Override
+        protected void onCancelled() {
+            authTask = null;
+
+        }
+    }
+
+    private void registerVirgilCard(ValidatedIdentity identity) {
+
+        // Obtain public key for the Private Keys Service retrieved from the
+        // Public Keys Service
+        SearchCriteria criteria = new SearchCriteria();
+        criteria.setType(IdentityType.EMAIL);
+        criteria.setValue(User.getDeviceUser().getUsername());
+
+        List<VirgilCard> cards = getClientFactory().getPublicKeyClient().search(criteria);
+        VirgilCard serviceCard = cards.get(0);
+
+        // search the card by email identity on Virgil Keys service.
+        SearchCriteria.Builder criteriaBuilder = new SearchCriteria.Builder().setValue(identity.getValue()).setIncludeUnauthorized(true);
+        cards = getClientFactory().getPublicKeyClient().search(criteriaBuilder.build());
+
+        // The app is verifying whether the user really owns the provided email
+        // address and getting a temporary token for public key registration
+        // (in case that the card is not registered, otherwise this token will be
+        // used to retrieve a private key).
+        VirgilCard card;
+        if (!cards.isEmpty()) {
+            card = cards.get(0);
+
+            new Testable.Spec("Verify VirgilCard").describe("Virgil Card ID").expect(card.getId()).run();
+            new Testable.Spec("Verify VirgilCard").describe("Public key").expect(Base64.decode(card.getPublicKey().getKey()).toString()).run();
+
+            // Load member's keys
+            PrivateKeyInfo privateKeyInfo = getClientFactory().getPrivateKeyClient(serviceCard).get(card.getId(), identity);
+
+            new Testable.Spec("Verify VirgilCard").describe("Private key").expect(Base64.decode(privateKeyInfo.getKey()).toString()).run();
+
+            settings.setCardId(card.getId());
+            settings.setPublicKey(card.getPublicKey().toString());
+            settings.setPrivateKey(card.getPublicKey().getKey());
+            settings.setPrivateKey(privateKeyInfo.getKey());
+
+        } else {
+
+            new Testable.Spec("Register Virgil Card").describe("retrieving card failed").run();
+
+            // generate a new public/private key pair.
+            KeyPair keyPair = KeyPairGenerator.generate();
+
+            // The app is registering a Virgil Card which includes a
+            // public key and an email address identifier. The card will
+            // be used for the public key identification and searching
+            // for it in the Public Keys Service.
+            VirgilCardTemplate.Builder vcBuilder = new VirgilCardTemplate.Builder().setIdentity(identity).setPublicKey(keyPair.getPublic());
+            card = getClientFactory().getPublicKeyClient().createCard(vcBuilder.build(), keyPair.getPrivate());
+
+            // Private key can be added to Virgil Security storage if you want to
+            // easily synchronise your private key between devices.
+            getClientFactory().getPrivateKeyClient(serviceCard).stash(card.getId(), keyPair.getPrivate());
+
+            new Testable.Spec("Register VirgilCard").describe("Virgil Card ID").expect(card.getId()).run();
+            new Testable.Spec("Register VirgilCard").describe("Public key").expect(keyPair.getPublic().getAsString()).run();
+            new Testable.Spec("Register VirgilCard").describe("Private key").expect(keyPair.getPrivate().getAsString()).run();
+
+            settings.setCardId(card.getId());
+            settings.setPublicKey(keyPair.getPublic().getAsString());
+            settings.setPrivateKey(keyPair.getPrivate().getAsString());
+
         }
     }
 

@@ -184,4 +184,52 @@ public class Settings {
 
     }
 
+    public String getIdentity() {
+        return sharedPreferences.getString(Config.IDENTITY, Config.EMPTY_STRING);
+    }
+
+    public void setIdentity(String value) {
+        sharedPreferences
+                .edit()
+                .putString(Config.IDENTITY, value)
+                .apply();
+
+    }
+
+    public String getCardId() {
+        return sharedPreferences.getString(Config.CARD_ID, Config.EMPTY_STRING);
+    }
+
+    public void setCardId(String value) {
+        sharedPreferences
+                .edit()
+                .putString(Config.CARD_ID, value)
+                .apply();
+
+    }
+
+    public String getPrivateKey() {
+        return sharedPreferences.getString(Config.PRIVATE_KEY, Config.EMPTY_STRING);
+    }
+
+    public void setPrivateKey(String value) {
+        sharedPreferences
+                .edit()
+                .putString(Config.PRIVATE_KEY, value)
+                .apply();
+
+    }
+
+    public String getPublicKey() {
+        return sharedPreferences.getString(Config.PUBLIC_KEY, Config.EMPTY_STRING);
+    }
+
+    public void setPublicKey(String value) {
+        sharedPreferences
+                .edit()
+                .putString(Config.PUBLIC_KEY, value)
+                .apply();
+
+    }
+
 }

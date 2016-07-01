@@ -97,6 +97,10 @@ public class Config {
     public static final String KEY_LAST_SEEN = "lastSeen";
     public static final String KEY_LINK = "link";
     public static final String KEY_CAPTION = "caption";
+    static final String IDENTITY = "identity";
+    static final String CARD_ID = "card_id";
+    static final String PRIVATE_KEY = "privateKey";
+    static final String PUBLIC_KEY = "publicKey";
 
     public static final String KEY_LIVE_TYPING = "live_typing";
     public static final String KEY_HIDE_REGULAR = "hide_regular";

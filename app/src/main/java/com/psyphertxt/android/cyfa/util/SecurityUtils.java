@@ -177,10 +177,10 @@ public class SecurityUtils {
     }
 
     //virgil-integration
-    public static Map<String, Object> encrypt(ClientFactory clientFactory,KeyPair keyPair, String message) throws Exception {
+    public static Map<String, Object> encrypt(String username,KeyPair keyPair, String message) throws Exception {
 
         Map<String, Object> encryption = new HashMap<>();
-        String encryptedMessage = CryptoHelper.encrypt(message, search(clientFactory));
+        String encryptedMessage = CryptoHelper.encrypt(message, username,keyPair.getPublic());
         String signature = CryptoHelper.sign(encryptedMessage, keyPair.getPrivate());
         encryption.put("text",encryptedMessage);
         encryption.put("signature",signature);

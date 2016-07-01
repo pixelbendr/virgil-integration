@@ -11,6 +11,7 @@ import com.psyphertxt.android.cyfa.Config;
 import com.psyphertxt.android.cyfa.backend.firebase.model.Media;
 import com.psyphertxt.android.cyfa.backend.firebase.model.Message;
 import com.psyphertxt.android.cyfa.backend.firebase.model.Status;
+import com.psyphertxt.android.cyfa.backend.parse.User;
 import com.psyphertxt.android.cyfa.model.Chat;
 import com.psyphertxt.android.cyfa.model.DeliveryStatus;
 import com.psyphertxt.android.cyfa.ui.listeners.CallbackListener;
@@ -438,7 +439,7 @@ public class MessageChannel {
         //virgil-integration
         try {
             //   message.setText(SecurityUtils.encrypt(encryption, chat.getText()));
-            Map<String,Object> map = SecurityUtils.encrypt(clientFactory,keyPair,chat.getText());
+            Map<String,Object> map = SecurityUtils.encrypt(User.getDeviceUser().getUsername(),keyPair,chat.getText());
             message.setText((String) map.get("text"));
             message.setSignature((String) map.get("signature"));
 

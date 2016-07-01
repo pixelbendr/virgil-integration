@@ -71,10 +71,6 @@ public class StatusActivity extends MainActionBarActivity implements PresenceLis
         ButterKnife.inject(this);
         setSupportActionBar(toolbar);
 
-        //virgil-integration
-        ClientFactory clientFactory = new ClientFactory(getString(R.string.access_token));
-        KeyPair keyPair = KeyPairGenerator.generate();
-
         String deviceUserId = User.getDeviceUserId();
         txtProfileName.setText(User.getDeviceUser().getProfileName());
 

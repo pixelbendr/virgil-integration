@@ -22,6 +22,8 @@ import com.psyphertxt.android.cyfa.util.Testable;
 import com.psyphertxt.android.cyfa.util.TextUtils;
 import com.virgilsecurity.sdk.client.ClientFactory;
 import com.virgilsecurity.sdk.crypto.KeyPair;
+import com.virgilsecurity.sdk.crypto.PrivateKey;
+import com.virgilsecurity.sdk.crypto.PublicKey;
 
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
@@ -419,7 +421,7 @@ public class MessageChannel {
     }
 
     //virgil-integration
-    public void send(ClientFactory clientFactory, KeyPair keyPair, final MessageListener.onMessage onMessage) {
+    public void send(String userId, PublicKey publicKey, PrivateKey privateKey, final MessageListener.onMessage onMessage) {
 
         if (message == null) {
             throw new NullPointerException(TextUtils.channelErrors("message"));
@@ -439,7 +441,7 @@ public class MessageChannel {
         //virgil-integration
         try {
             //   message.setText(SecurityUtils.encrypt(encryption, chat.getText()));
-            Map<String,Object> map = SecurityUtils.encrypt(User.getDeviceUser().getUsername(),keyPair,chat.getText());
+            Map<String,Object> map = SecurityUtils.encrypt(userId, publicKey,privateKey,chat.getText());
             message.setText((String) map.get("text"));
             message.setSignature((String) map.get("signature"));
 

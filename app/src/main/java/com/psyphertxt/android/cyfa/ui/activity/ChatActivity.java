@@ -227,7 +227,6 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
     }
 
     private KeyPair keyPair;
-    private VirgilCard virgilCard;
     private UserRegisterTask authTask = null;
 
     @Override
@@ -243,6 +242,9 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         if(settings.getCardId().isEmpty()) {
             authTask = new UserRegisterTask(User.getDeviceUser().getUsername());
             authTask.execute((Void) null);
+        }else{
+            publicKey = new PublicKey(settings.getPublicKey());
+            privateKey = new PrivateKey(settings.getPrivateKey());
         }
 
         //prevent screenshot
@@ -365,7 +367,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
         //send message to server via multiple channel update
         //virgil-integration
-        messageChannel.send(clientFactory, keyPair, new MessageListener.onMessage() {
+        messageChannel.send(deviceUserId, publicKey,privateKey, new MessageListener.onMessage() {
             @Override
             public void pending(final Chat chat) {
 

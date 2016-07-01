@@ -20,6 +20,7 @@ import com.virgilsecurity.sdk.client.model.publickey.VirgilCardTemplate;
 import com.virgilsecurity.sdk.crypto.CryptoHelper;
 import com.virgilsecurity.sdk.crypto.KeyPair;
 import com.virgilsecurity.sdk.crypto.KeyPairGenerator;
+import com.virgilsecurity.sdk.crypto.PrivateKey;
 import com.virgilsecurity.sdk.crypto.PublicKey;
 import com.virgilsecurity.sdk.crypto.Base64;
 
@@ -177,11 +178,11 @@ public class SecurityUtils {
     }
 
     //virgil-integration
-    public static Map<String, Object> encrypt(String username,KeyPair keyPair, String message) throws Exception {
+    public static Map<String, Object> encrypt(String cardId, PublicKey publicKey, PrivateKey privateKey, String message) throws Exception {
 
         Map<String, Object> encryption = new HashMap<>();
-        String encryptedMessage = CryptoHelper.encrypt(message, username,keyPair.getPublic());
-        String signature = CryptoHelper.sign(encryptedMessage, keyPair.getPrivate());
+        String encryptedMessage = CryptoHelper.encrypt(message, cardId,publicKey);
+        String signature = CryptoHelper.sign(encryptedMessage, privateKey);
         encryption.put("text",encryptedMessage);
         encryption.put("signature",signature);
         return encryption;

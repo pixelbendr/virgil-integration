@@ -75,6 +75,7 @@ public class Chat {
 
     }
 
+    //virgil decryption
     public void messageDecryption(Message message, String deviceUserId, PrivateKey privateKey) {
 
 

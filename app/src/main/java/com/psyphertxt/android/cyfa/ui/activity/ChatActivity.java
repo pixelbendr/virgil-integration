@@ -1044,6 +1044,8 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
         final Chat chat = new Chat();
         chat.updateMessages(message, child, deviceUserId, contextUserProfileName);
+
+        //virgil decryption
         if (chat.getUserId().equals(deviceUserId)){
             chat.messageDecryption(message, contextUserId, privateKey);
         }else{

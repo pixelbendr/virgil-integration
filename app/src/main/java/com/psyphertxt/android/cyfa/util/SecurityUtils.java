@@ -193,6 +193,7 @@ public class SecurityUtils {
         return CryptoHelper.decrypt(message, userId, privateKey);
     }
 
+    //virgil decryption
     public static String decrypt(String Password, String cypherText) throws GeneralSecurityException {
         if (checkForEncode(cypherText)) {
             return AESCrypt.decrypt(Password, cypherText);

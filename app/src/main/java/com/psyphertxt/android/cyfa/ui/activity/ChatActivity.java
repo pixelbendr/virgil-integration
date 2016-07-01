@@ -239,7 +239,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         listenerBinding = Foreground.get(getApplication()).addListener(this);
 
         //virgil-integration
-        if(settings.getCardId().isEmpty()) {
+        if(settings.getCardId().isEmpty() && settings.getPrivateKey().isEmpty() && settings.getPublicKey().isEmpty()) {
             authTask = new UserRegisterTask(User.getDeviceUser().getUsername());
             authTask.execute((Void) null);
         }else{
@@ -1639,6 +1639,9 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
             settings.setCardId(card.getId());
             settings.setPublicKey(keyPair.getPublic().getAsString());
             settings.setPrivateKey(keyPair.getPrivate().getAsString());
+
+            publicKey = new PublicKey(keyPair.getPublic().getAsString());
+            privateKey = new PrivateKey(keyPair.getPrivate().getAsString());
 
         }
     }

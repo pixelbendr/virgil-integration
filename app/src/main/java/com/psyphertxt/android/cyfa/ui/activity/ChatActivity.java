@@ -208,8 +208,6 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
     private PrivateKey privateKey;
     private PublicKey publicKey;
 
-    private String encryptionKey;
-
     private Boolean isChatCreated = false;
     private Boolean isPrivateMessages = false;
 
@@ -238,7 +236,7 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
         //listen for application in background
         listenerBinding = Foreground.get(getApplication()).addListener(this);
 
-        //virgil-integration
+        //virgil decryption
         if (settings.getCardId().isEmpty() && settings.getPrivateKey().isEmpty() && settings.getPublicKey().isEmpty()) {
             authTask = new UserRegisterTask(User.getDeviceUser().getUsername());
             authTask.execute((Void) null);
@@ -592,8 +590,8 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
                     .loadAllMessages(this)
                     .connect();
 
-            String[] strings = conversationId.split("-");
-            encryptionKey = strings[2];
+          //  String[] strings = conversationId.split("-");
+            //encryptionKey = strings[2];
 
             if (!contextUserId.isEmpty()) {
 

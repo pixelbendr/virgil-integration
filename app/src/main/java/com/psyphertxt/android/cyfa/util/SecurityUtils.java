@@ -162,10 +162,10 @@ public class SecurityUtils {
         return AESCrypt.encrypt(Password, plainText);
     }
 
-    public static Map<String, PublicKey> search(ClientFactory clientFactory) {
+    public static Map<String, PublicKey> search(ClientFactory clientFactory,String email) {
 
         SearchCriteria.Builder criteriaBuilder = new SearchCriteria.Builder()
-                .setValue(User.getDeviceUser().getUsername());
+                .setValue(email);
         List<VirgilCard> recipientCards = clientFactory.getPublicKeyClient()
                 .search(criteriaBuilder.build());
 
@@ -182,6 +182,17 @@ public class SecurityUtils {
 
         Map<String, Object> encryption = new HashMap<>();
         String encryptedMessage = CryptoHelper.encrypt(message, userId, publicKey);
+        String signature = CryptoHelper.sign(encryptedMessage, privateKey);
+        encryption.put("text", encryptedMessage);
+        encryption.put("signature", signature);
+        return encryption;
+
+    }
+
+    public static Map<String, Object> encrypt(String message,PrivateKey privateKey,Map<String, PublicKey> recipients) throws Exception {
+
+        Map<String, Object> encryption = new HashMap<>();
+        String encryptedMessage = CryptoHelper.encrypt(message, recipients);
         String signature = CryptoHelper.sign(encryptedMessage, privateKey);
         encryption.put("text", encryptedMessage);
         encryption.put("signature", signature);

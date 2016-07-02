@@ -226,12 +226,16 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
 
     private KeyPair keyPair;
     private UserRegisterTask authTask = null;
+    private UserSearchTask searchTask = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         // super.onCreate(savedInstanceState, R.layout.activity_chat);
+
+
 
         //listen for application in background
         listenerBinding = Foreground.get(getApplication()).addListener(this);
@@ -925,6 +929,8 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
                 //and remove reference to save memory
                 contextUser = user;
 
+                new Testable.Spec("Context User").describe("value of context user email").expect(User.getDeviceUser().getUsername()).run();
+
                 //set values from the previous activity
                 contextUserId = contextUser.getUserId();
                 contextUserProfileName = contextUser.getProfileName();
@@ -1565,6 +1571,40 @@ public class ChatActivity extends ChatActionBarActivity implements PresenceListe
             } else {
                 // TODO: registration failed
                 new Testable.Spec("Registered Identity").describe("registration failed").expect("error").run();
+            }
+        }
+
+        @Override
+        protected void onCancelled() {
+            authTask = null;
+
+        }
+    }
+
+    public class UserSearchTask extends AsyncTask<Void, Void, Boolean> {
+
+        private final String email;
+
+        UserSearchTask(String email) {
+            this.email = email;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            Map<String, PublicKey> search = SecurityUtils.search(clientFactory,email);
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            authTask = null;
+
+            if (success) {
+
+            } else {
+                // TODO: registration failed
+                new Testable.Spec("UserSearchTask Identity").describe("search failed").expect("error").run();
             }
         }
 
